@@ -1,4 +1,4 @@
-﻿namespace ExemploAPI.Models.Request
+﻿namespace ExemploAPI.Application.ViewModels
 {
 	public class EditaProdutoViewModel
 	{

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ExemploAPI.Models.Request
+namespace ExemploAPI.Application.ViewModels
 {
 	public class NovoProdutoViewModel	{
 		[Required(ErrorMessage = "A descrição é obrigatória.")]

@@ -1,6 +1,6 @@
-﻿using ExemploAPI.Models.Validations;
+﻿using ExemploAPI.Application.Validations;
 
-namespace ExemploAPI.Models.Request
+namespace ExemploAPI.Application
 {
 	public class TesteViewModel
 	{

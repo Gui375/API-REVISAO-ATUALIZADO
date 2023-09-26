@@ -1,4 +1,4 @@
-﻿using ExemploAPI.Models.Request;
+﻿using ExemploAPI.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 

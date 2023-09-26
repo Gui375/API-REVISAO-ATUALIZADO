@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System;
 
-namespace ExemploAPI.Models.Validations
+namespace ExemploAPI.Application.Validations
 {
 	public class CpfValidationAttribute : ValidationAttribute
 	{
