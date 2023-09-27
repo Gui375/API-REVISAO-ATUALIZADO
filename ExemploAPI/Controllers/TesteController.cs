@@ -1,5 +1,4 @@
-﻿using ExemploAPI.Models.Request;
-using ExemploAPI.Models.Response;
+﻿using ExemploAPI.Application;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExemploAPI.Controllers
