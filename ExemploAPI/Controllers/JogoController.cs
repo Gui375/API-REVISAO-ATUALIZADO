@@ -1,4 +1,5 @@
-﻿using ExemploAPI.Application.ViewModels;
+﻿using ExemploAPI.Application.Interfaces;
+using ExemploAPI.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -9,10 +10,12 @@ namespace ExemploAPI.Controllers
     public class JogoController : ControllerBase
     {
         private readonly string _jogoCaminhoArquivo;
+        private readonly IJogoService _jogoService;
 
-        public JogoController()
+        public JogoController(IJogoService jogoService)
         {
             _jogoCaminhoArquivo = Path.Combine(Directory.GetCurrentDirectory(), "Data", "jogosMega.json");
+            _jogoService = jogoService;
         }
 
         #region Métodos arquivo
@@ -51,7 +54,7 @@ namespace ExemploAPI.Controllers
         [Route("ObterTodos")]
         public IActionResult ObterTodos()
         {
-            List<JogoViewModel> jogos = LerJogosDoArquivo();
+            IEnumerable<JogoViewModel> jogos = _jogoService.ObterTodos();
             return Ok(jogos);
         }
 
@@ -63,41 +66,22 @@ namespace ExemploAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            List<JogoViewModel> jogos = LerJogosDoArquivo();
-            int proximoCodigo = ObterProximoCodigoDisponivel();
+            var result = _jogoService.Adicionar(jogo);
 
-            JogoViewModel novoJogo = new JogoViewModel()
-            {
-                Id = proximoCodigo,
-                Nome = jogo.Nome,
-                Cpf = jogo.Cpf,
-                primeiroNro = jogo.primeiroNro,
-                segundoNro = jogo.segundoNro,
-                terceiroNro = jogo.terceiroNro,
-                quartoNro = jogo.quartoNro,
-                quintoNro = jogo.quintoNro,
-                sextoNro = jogo.sextoNro,
-                dataJogo = DateTime.Now
-            };
-
-            jogos.Add(novoJogo);
-            EscreverProdutosNoArquivo(jogos);
-
-            return Ok("Jogo Registrado com sucesso!");
+            return Ok(result);
         }
 
         [HttpGet]
         [Route("ObterPorCodigo/{codigo}")]
-        public IActionResult ObterPorCodigo(int codigo)
+        public IActionResult ObterPorCodigo(int id)
         {
-            List<JogoViewModel> jogos = LerJogosDoArquivo();
-            JogoViewModel jogo = jogos.Find(p => p.Id == codigo);
-            if (jogo == null)
+
+            var result = _jogoService.BuscarPorId(id);
+            if(result == null)
             {
                 return NotFound();
             }
-
-            return Ok(jogo);
+            return Ok(result);
         }
     }
 }

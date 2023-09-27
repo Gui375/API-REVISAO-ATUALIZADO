@@ -1,5 +1,4 @@
-﻿using ExemploAPI.Application.Validations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,7 +14,6 @@ namespace ExemploAPI.Domain.Entities
         [MaxLength(255, ErrorMessage = "Nome deve ter no maximo 255 caracteres.")]
         public string Nome { get; set; }
         [Required]
-        [CpfValidation(ErrorMessage = "CPF invalido")]
         public string Cpf { get; set; }
         [Required]
         [Range(1, 60, ErrorMessage = "Valor invalido")]
