@@ -3,7 +3,6 @@ using ExemploAPI.Application.Interfaces;
 using ExemploAPI.Application.ViewModels;
 using ExemploAPI.Domain.Entities;
 using ExemploAPI.Domain.Interfaces;
-using ExemploAPI.Models.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
