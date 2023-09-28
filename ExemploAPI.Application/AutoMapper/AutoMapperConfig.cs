@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 
 namespace ExemploAPI.Application.AutoMapper
 {
-    public class AutoMapper : Profile
+    public class AutoMapperConfig : Profile
     {
-        public AutoMapper()
+        public AutoMapperConfig()
         {
             CreateMap<JogoViewModel, Jogo>().ReverseMap();
             CreateMap<NovoJogoViewModel, NovoJogo>().ReverseMap();
+            CreateMap<CartaViewModel, Carta>().ReverseMap();
         }
     }
 }
