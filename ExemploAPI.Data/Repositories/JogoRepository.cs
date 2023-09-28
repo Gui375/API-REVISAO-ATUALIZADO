@@ -1,5 +1,8 @@
-﻿using ExemploAPI.Domain.Entities;
+﻿using ExemploAPI.Application.ViewModels;
+using ExemploAPI.Domain.Entities;
 using ExemploAPI.Domain.Interfaces;
+using ExemploAPI.Models.Request;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +20,6 @@ namespace ExemploAPI.Data.Repositories
         {
             _produtoCaminhoArquivo = Path.Combine(Directory.GetCurrentDirectory(), "Data", "jogosMega.json");
         }
-        #endregion
         #region Métodos arquivo
         private List<Jogo> LerJogosDoArquivo()
         {
