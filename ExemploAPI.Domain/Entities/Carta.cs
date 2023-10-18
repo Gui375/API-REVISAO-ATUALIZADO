@@ -23,14 +23,14 @@ namespace ExemploAPI.Domain.Entities
             Texto = texto;
 
         }
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public int Idade { get; set; }
-        public string Rua { get; set; }
-        public int Numero { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public string Texto { get; set; }
+        public int Id { get; private set; }
+        public string Nome { get; private set; }
+        public int Idade { get; private set; }
+        public string Rua { get; private set; }
+        public int Numero { get; private set; }
+        public string Bairro { get; private set; }
+        public string Cidade { get; private set; }
+        public string Estado { get; private set; }
+        public string Texto { get; private set; }
     }
 }
